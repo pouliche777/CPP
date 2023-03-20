@@ -1,5 +1,9 @@
+
 #include "Contacts.hpp"
 
+Contacts::~Contacts() {
+    // Perform any necessary cleanup here
+}
 int 	str_is_dig(std::string str) {
 	for (unsigned long i = 0; i < str.size(); i++) {
 		if (!std::isdigit(str[i]))

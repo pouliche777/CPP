@@ -1,5 +1,8 @@
 #include "PhoneBook.hpp"
 
+
+PhoneBook::~PhoneBook() {
+}
 void	PhoneBook::new_contact(void) 
 {
 	static int index = 0;

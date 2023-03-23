@@ -1,8 +1,7 @@
-NAME		=	phonebook
+NAME		=	account
 
-SRC			=	main.cpp \
-				PhoneBook.cpp \
-				Contacts.cpp
+SRC			=	account.cpp \
+				tests.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 

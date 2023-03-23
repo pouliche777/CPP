@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 17:45:55 by slord             #+#    #+#             */
-/*   Updated: 2023/03/21 16:08:51 by slord            ###   ########.fr       */
+/*   Created: 2023/03/19 20:22:54 by slord             #+#    #+#             */
+/*   Updated: 2023/03/19 22:22:08 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+#define FIXED_HPP
+#include <iostream>
 
-#include "HumanA.hpp"
+class Fixed{
 
-HumanA::HumanA(std::string name, Weapon& weapon): name(name), weapon(weapon)
-{
-	this->name = name;
-	std::cout<< "A new human A is born!! " << " His/her name is  "<< name << std::endl;
-}
-HumanA::~HumanA(){
-	std::cout<< "A humanA has been killed" << std::endl;
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(const Fixed& other);
+		Fixed& operator=(const Fixed& ohter);
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
+	private:
+		int value;
+		static const int frac = 8;
+	
+};
 
-}
-
-void HumanA::attack(){
-
-	std::cout<< this->name << " attacks with their " << this->weapon.getType() << std::endl;
-}
-
+#endif

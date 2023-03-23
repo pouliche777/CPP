@@ -1,7 +1,7 @@
-NAME		=	Fixed
+NAME		=	ClapTrap
 
 SRC			=	main.cpp \
-				Fixed.cpp \
+				ClapTrap.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -12,7 +12,6 @@ FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 EXEC		=	$(NAME)
 
-# ------------------------------------- RULES ---------------------------------
 all: $(NAME)
 
 $(NAME): $(OBJS)

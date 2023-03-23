@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 
 int main(int argc, char** argv)
 {
@@ -12,9 +12,10 @@ int main(int argc, char** argv)
 	while (--argc)
 	{
 		i++;
-		for (size_t x=0; x<strlen(argv[i]); x++)
-			argv[i][x] = toupper(argv[i][x]);
-		std::cout << argv[i];
+		std::string tempo = argv[i];
+		for(unsigned int i=0; i< tempo.size();i++)
+			tempo[i] = std::toupper(tempo[i]);
+		std::cout << tempo;
 	}
 	std::cout << std::endl;
 }

@@ -9,17 +9,11 @@
 class Contacts {
 
 	public:
+	Contacts ();
+	~Contacts();
 		void		show_contact_info(void);
 		void		print_contact(int index);
 		void		create_contact(int index, bool full);
-		Contacts(){
-		}
-		Contacts(const Contacts& other) {
-        // Copie des membres de other dans this
-        this->first_name = other.first_name;
-        // ...
-    }
-	~Contacts();
 
 	private:
 		

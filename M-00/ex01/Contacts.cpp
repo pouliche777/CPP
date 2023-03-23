@@ -1,9 +1,12 @@
 
 #include "Contacts.hpp"
 
+Contacts::Contacts() {
+	}
+
 Contacts::~Contacts() {
-    // Perform any necessary cleanup here
-}
+	}
+
 int 	str_is_dig(std::string str) {
 	for (unsigned long i = 0; i < str.size(); i++) {
 		if (!std::isdigit(str[i]))
@@ -32,7 +35,12 @@ void	Contacts::set_darkest_secret(void)
 	std::string input;
 	std::getline(std::cin, input);
 	while (input.empty()){
+		std::cout << "Write his/her darkest secret\n";
 		std::getline(std::cin, input);
+	}
+	for (unsigned int i = 0; input[i]; i++){
+		if (input[i] == '\t')
+			input[i] = ' ';
 	}
 	darkest_secret.clear();
 	darkest_secret = input;
@@ -44,7 +52,12 @@ void	Contacts::set_first_name(void)
 	std::string input;
 		std::getline(std::cin, input);
 	while (input.empty()){
+		std::cout << "Write his/her first name\n";
 		std::getline(std::cin, input);
+	}
+	for (unsigned int i = 0; input[i]; i++){
+		if (input[i] == '\t')
+			input[i] = ' ';
 	}
 	first_name.clear();
 	first_name = input;
@@ -56,8 +69,12 @@ void	Contacts::set_nickname(void)
 	std::string input;
 	std::getline(std::cin, input);
 	while (input.empty()){
+		std::cout << "Write his/her nickname\n";
 		std::getline(std::cin, input);
-		set_phone_number();
+	}
+	for (unsigned int i = 0; input[i]; i++){
+		if (input[i] == '\t')
+			input[i] = ' ';
 	}
 	nickname.clear();
 	nickname = input;
@@ -69,7 +86,12 @@ void	Contacts::set_last_name(void)
 	std::string input;
 	std::getline(std::cin, input);
 	while (input.empty()){
+		std::cout << "Write his/her last name\n";
 		std::getline(std::cin, input);
+	}
+	for (unsigned int i = 0; input[i]; i++){
+		if (input[i] == '\t')
+			input[i] = ' ';
 	}
 	last_name.clear();
 	last_name = input;
@@ -83,9 +105,13 @@ void	Contacts::set_phone_number(void)
 	while (input.empty()){
 		std::getline(std::cin, input);
 	}
+	for (unsigned int i = 0; input[i]; i++){
+		if (input[i] == '\t')
+			input[i] = ' ';
+	}
 	while (str_is_dig(input) == 0)
 	{
-		std::cout << "Invalid format for number\n Write his/her phone number \n";
+		std::cout << "Invalid format for number\nWrite his/her phone number \n";
 		input.clear();
 		while (input.empty()){
 			std::getline(std::cin, input);
@@ -123,6 +149,7 @@ void	Contacts::print_info(std::string info)
 			std::cout << ".";	
 		}	
 	std::cout<<"|";
+	info.clear();
 }
 
 void	Contacts::show_contact_info(void) {

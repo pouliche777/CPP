@@ -8,15 +8,13 @@
 class PhoneBook {
 
 	public:
-		PhoneBook(){
-
-		}
+   		PhoneBook();
+		~PhoneBook();
 	 	void	show_contacts_list(void);
 		void	new_contact(void);
-		Contacts	contacts[8];
-		
-       ~PhoneBook();
+
 	private :
+		Contacts	contacts[8];
 
 };
 

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 17:45:55 by slord             #+#    #+#             */
-/*   Updated: 2023/03/21 16:08:51 by slord            ###   ########.fr       */
+/*   Created: 2023/03/19 20:31:10 by slord             #+#    #+#             */
+/*   Updated: 2023/03/20 21:34:17 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 
-#include "HumanA.hpp"
-
-HumanA::HumanA(std::string name, Weapon& weapon): name(name), weapon(weapon)
-{
-	this->name = name;
-	std::cout<< "A new human A is born!! " << " His/her name is  "<< name << std::endl;
+int main( void ) {
+	Fixed a;
+	Fixed const b(Fixed( -5.05f ) / Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
 }
-HumanA::~HumanA(){
-	std::cout<< "A humanA has been killed" << std::endl;
-
-}
-
-void HumanA::attack(){
-
-	std::cout<< this->name << " attacks with their " << this->weapon.getType() << std::endl;
-}
-

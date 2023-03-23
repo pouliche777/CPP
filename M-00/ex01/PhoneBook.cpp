@@ -1,6 +1,8 @@
 #include "PhoneBook.hpp"
 
 
+PhoneBook::PhoneBook() {
+}
 PhoneBook::~PhoneBook() {
 }
 void	PhoneBook::new_contact(void) 
@@ -13,7 +15,7 @@ void	PhoneBook::new_contact(void)
 		index = 0;
 		full = true;
 	}
-	contacts[index].create_contact(index, full);
+	this->contacts[index].create_contact(index, full);
 	index++;
 }
 

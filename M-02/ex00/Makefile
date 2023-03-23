@@ -1,7 +1,7 @@
 
-SOURCES = megaphone.cpp
+SOURCES = main.cpp Fixed.cpp
 
-NAME = megaphone
+NAME = Fixed
 CC			= clang++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 

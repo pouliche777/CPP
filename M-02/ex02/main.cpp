@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 20:31:10 by slord             #+#    #+#             */
-/*   Updated: 2023/03/20 21:34:17 by slord            ###   ########.fr       */
+/*   Updated: 2023/03/24 11:15:37 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed const b(Fixed( -5.05f ) / Fixed( 2 ) );
+	Fixed const b(Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;

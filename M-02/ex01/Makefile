@@ -1,22 +1,31 @@
+NAME		=	Fixed
 
-SOURCES = main.cpp Fixed.cpp
+SRC			=	main.cpp \
+				Fixed.cpp \
 
-NAME = Fixed
-CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+OBJS		=	$(SRC:.cpp=.o)
 
+CC		=	clang++
+
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+
+
+EXEC		=	$(NAME)
 
 all: $(NAME)
 
-$(NAME): $(SOURCES)
-	@echo "COMPILATION $@"
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^
 
+
 clean:
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(EXEC)
+	
+re:	fclean all
 
-re: fclean all
 
-.PHONY: all clean fclean re test
+
+.PHONY:	all clean fclean re run

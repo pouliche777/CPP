@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 20:36:35 by slord             #+#    #+#             */
-/*   Updated: 2023/03/20 21:45:39 by slord            ###   ########.fr       */
+/*   Updated: 2023/03/24 11:17:03 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ std::ostream &operator<<(std::ostream &out, const Fixed &other){
     return (out);
 }
 
-
-// OPERATORS OVERLOAD
 Fixed Fixed::operator*(const Fixed other)const{
 	std::cout << "multiplication assignment operator called" << std::endl;
 		//Fixed var = this->toFloat()* other.toFloat();

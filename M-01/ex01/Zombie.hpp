@@ -6,13 +6,13 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:46:53 by slord             #+#    #+#             */
-/*   Updated: 2023/03/19 17:46:54 by slord            ###   ########.fr       */
+/*   Updated: 2023/03/24 10:21:31 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <string>
 #include <iostream>

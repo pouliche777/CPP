@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:45:05 by slord             #+#    #+#             */
-/*   Updated: 2023/03/19 17:45:06 by slord            ###   ########.fr       */
+/*   Updated: 2023/03/24 10:38:22 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Weapon{
 	public:
 		Weapon(std::string type);
 		~Weapon();
-		std::string getType();
-		void	setType(std::string type);
+		  std::string const& getType() const;
+		void	setType(std::string const& type);
 	private:
 		std::string type;
 };

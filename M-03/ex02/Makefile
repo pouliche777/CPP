@@ -1,8 +1,9 @@
-NAME		=	ScavTrap
+NAME		=	FragTrap
 
 SRC			=	main.cpp \
 				ClapTrap.cpp \
-				ScavTrap.cpp
+				ScavTrap.cpp \
+				FragTrap.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 

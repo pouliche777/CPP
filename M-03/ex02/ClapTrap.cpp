@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(void) {
 	return; }
 
 ClapTrap::ClapTrap(std::string name) { 
-	std::cout<< "(name constructor) A new ClapTrap is born!!!  His/her name is : " << name << std::endl; 
+	std::cout<< "A new ClapTrap is born!!!  His/her name is : " << name << std::endl; 
 	this->AttackDamage = 0;
 	this->EnergyPoints = 10;
 	this->HitPoints = 10;
@@ -35,7 +35,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
 	return *this;
 }
 
-  void ClapTrap::attack(const std::string& target){
+void ClapTrap::attack(const std::string& target){
 	
 	if (this->EnergyPoints <= 0){
 		std::cout << this->name << " can't attack because he has no energy" <<  std::endl;
@@ -66,9 +66,11 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
 	if (this->HitPoints <= this->MaxHitPoints){
 		std::cout << this->name << " is fully repaired, he has " << this->MaxHitPoints << " hitpoints !!!" << std::endl;
 		this->HitPoints = this->MaxHitPoints;
-	}	
+	}
+
+	
 }
 // Default destructor
- ClapTrap::~ClapTrap() { 
-	std::cout  << "ClapTrap destructor called! " << std::endl; 
+ClapTrap::~ClapTrap() { 
+	std::cout << this->name << " has been destroyed " << std::endl; 
 	return; }

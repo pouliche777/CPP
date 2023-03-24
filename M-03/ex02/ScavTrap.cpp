@@ -3,9 +3,6 @@
 #include "ClapTrap.hpp"
 
 // Default constructor
-ScavTrap::ScavTrap(){
-
-}
 ScavTrap::ScavTrap(std::string name) { 
 	
 	std::cout<< "A new ScavTrap is born!!!  His/her name is : " << name << std::endl; 
@@ -22,6 +19,15 @@ ScavTrap::ScavTrap(const ScavTrap &other) {
   return;
 }
 
+void ScavTrap::attack(const std::string& target){
+	
+	if (this->EnergyPoints <= 0 && this->HitPoints <=0){
+		std::cout << this->name << " can't attack because he has no energy or is dead" <<  std::endl;
+		return ;
+	}
+	std::cout<< this->name << " ,a ScavTrap, attacks " << target << " for " << this->AttackDamage << " damage!!!" << std::endl;
+	this->EnergyPoints--;
+}
 // Copy assignment overload
 ScavTrap & ScavTrap::operator=(const ScavTrap &rhs) {
   this->AttackDamage = rhs.AttackDamage;
@@ -32,12 +38,9 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &rhs) {
 }
 
 // Default destructor
-
-ScavTrap::~ScavTrap(){ 
+ScavTrap::~ScavTrap(){
 	std::cout<<"ScavTrap destructor called" << std::endl;
-	
-	return; 
-}
+	 return; }
 
 void	ScavTrap:: guardGate(){
 	if (this->EnergyPoints > 0 && this->HitPoints > 0){
@@ -49,12 +52,3 @@ void	ScavTrap:: guardGate(){
 		std::cout<<this->name << " is out of ernergy or simply DEAD!" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target){
-	
-	if (this->EnergyPoints <= 0 && this->HitPoints <=0){
-		std::cout << this->name << " can't attack because he has no energy" <<  std::endl;
-		return ;
-	}
-	std::cout<< this->name << " ,a ScavTrap, attacks " << target << " for " << this->AttackDamage << " damage!!!" << std::endl;
-	this->EnergyPoints--;
-}

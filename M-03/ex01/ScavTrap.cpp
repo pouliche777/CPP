@@ -4,8 +4,14 @@
 
 // Default constructor
 ScavTrap::ScavTrap(){
-
+	std::cout<< "A default new ScavTrap is born!!! " << std::endl; 
+	this->AttackDamage = 20;
+	this->EnergyPoints = 50;
+	this->HitPoints = 100;
+	this->MaxHitPoints = HitPoints;
+	this->name = "DEFAULT";
 }
+// Default constructor
 ScavTrap::ScavTrap(std::string name) { 
 	
 	std::cout<< "A new ScavTrap is born!!!  His/her name is : " << name << std::endl; 
@@ -28,6 +34,7 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &rhs) {
 	this->EnergyPoints = rhs.EnergyPoints;
 	this->HitPoints = rhs.HitPoints;
 	this->name = rhs.name;
+	this->MaxHitPoints = rhs.MaxHitPoints;
   return *this;
 }
 
@@ -51,7 +58,11 @@ void	ScavTrap:: guardGate(){
 
 void ScavTrap::attack(const std::string& target){
 	
-	if (this->EnergyPoints <= 0 && this->HitPoints <=0){
+	if (this->HitPoints == 0){
+		std::cout << this->name << " is dead. He can't perform any action!! " <<  std::endl;
+		return ;
+	}
+	else if (this->EnergyPoints <= 0){
 		std::cout << this->name << " can't attack because he has no energy" <<  std::endl;
 		return ;
 	}

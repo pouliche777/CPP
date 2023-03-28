@@ -4,7 +4,7 @@
 
 // Default constructor
 ScavTrap::ScavTrap(){
-	std::cout<< "A default new ScavTrap is born!!! " << std::endl; 
+	std::cout<< "Default constructor for ScavTRap has been called!" << std::endl; 
 	this->AttackDamage = 20;
 	this->EnergyPoints = 50;
 	this->HitPoints = 100;
@@ -15,7 +15,7 @@ ScavTrap::ScavTrap(){
 // Name constructor
 ScavTrap::ScavTrap(std::string name) { 
 	
-	std::cout<< "A new ScavTrap is born!!!  His/her name is : " << name << std::endl; 
+	std::cout<< "Name constructor for ScavTRap has been called!" << name << std::endl; 
 	this->AttackDamage = 20;
 	this->EnergyPoints = 50;
 	this->HitPoints = 100;
@@ -60,6 +60,7 @@ void	ScavTrap:: guardGate(){
 	if (this->EnergyPoints > 0 && this->HitPoints > 0){
 	std::cout<<this->name << " is guarding the GATE!" << std::endl;
 	EnergyPoints--;
+	std::cout<<this->name << "  " << this->EnergyPoints << std::endl;
 
 	}
 	else

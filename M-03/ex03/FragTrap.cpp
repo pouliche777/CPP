@@ -54,3 +54,7 @@ void	FragTrap:: highFivesGuys(){
 		std::cout<<this->name << " is out of ernergy or simply DEAD!" << std::endl;
 
 }
+int FragTrap::getAttackDamage(void)
+{
+	return(this->AttackDamage);
+}

@@ -3,7 +3,7 @@
 #define FRAGTRAP_HPP_
 #include "ClapTrap.hpp"
 // Class declaration
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
  public:
 	FragTrap();
   	FragTrap(std::string name);
@@ -12,6 +12,7 @@ class FragTrap : public ClapTrap {
   	FragTrap &operator=(const FragTrap &rhs);
   	
  	void highFivesGuys(void);
+	int getAttackDamage(void);
 
  private:
   

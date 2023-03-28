@@ -4,7 +4,7 @@
 // Default constructor
 ClapTrap::ClapTrap(void) { 
 	std::cout<< "Default constructor for ClapTrap has been called!" << std::endl; 
-	this->name ="";
+	this->name ="Default";
 	this->AttackDamage = 0;
 	this->EnergyPoints = 10;
 	this->HitPoints = 10;
@@ -32,12 +32,16 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
 	this->EnergyPoints = rhs.EnergyPoints;
 	this->HitPoints = rhs.HitPoints;
 	this->name = rhs.name;
+	this->MaxHitPoints = rhs.MaxHitPoints;
 	return *this;
 }
 
   void ClapTrap::attack(const std::string& target){
-	
-	if (this->EnergyPoints <= 0){
+	if (this->HitPoints == 0){
+		std::cout << this->name << " is dead. He can't perform any action!! " <<  std::endl;
+		return ;
+	}
+	else if (this->EnergyPoints <= 0){
 		std::cout << this->name << " can't attack because he has no energy" <<  std::endl;
 		return ;
 	}

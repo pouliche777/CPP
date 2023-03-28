@@ -8,9 +8,10 @@
 class ClapTrap {
  public:
   ClapTrap(std::string name);
+  ClapTrap();
+  ~ClapTrap();
   ClapTrap(const ClapTrap &other);
   ClapTrap &operator=(const ClapTrap &rhs);
-  ~ClapTrap();
   void attack(const std::string& target);
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
@@ -21,7 +22,6 @@ class ClapTrap {
 	int	EnergyPoints;
 	int AttackDamage;
 	int MaxHitPoints;
-	ClapTrap();
 };
 
 #endif // CLAPTRAP_HPP_

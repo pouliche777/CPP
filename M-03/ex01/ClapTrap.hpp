@@ -7,14 +7,15 @@
 // Class declaration
 class ClapTrap {
  public:
-  ClapTrap(std::string name);
-  ClapTrap(const ClapTrap &other);
-  ClapTrap &operator=(const ClapTrap &rhs);
-   virtual ~ClapTrap();
-   virtual void attack(const std::string& target);
-  void takeDamage(unsigned int amount);
-  void beRepaired(unsigned int amount);
-	ClapTrap(void);
+ 	ClapTrap(void);
+	ClapTrap(std::string name);
+	virtual ~ClapTrap();
+	ClapTrap(const ClapTrap &other);
+	ClapTrap &operator=(const ClapTrap &rhs);
+	virtual void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+	
  protected:
  	
 	std::string name;

@@ -11,12 +11,11 @@ class ClapTrap {
   ClapTrap(const ClapTrap &other);
  ClapTrap &operator=(const ClapTrap &rhs);
   ~ClapTrap();
-	virtual void attack(const std::string& target);
+virtual void attack(const std::string& target);
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
 	ClapTrap(void);
  protected:
- 	
 	std::string name;
   	int	HitPoints;
 	int	EnergyPoints;

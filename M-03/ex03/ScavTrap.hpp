@@ -14,9 +14,12 @@ public:
 
 	void guardGate();
 	void attack(const std::string& target);
-	
- private:
- 
+
+ protected:
+	static const int	INIT_HIT_P;
+	static const int	INIT_ENERGY_P;
+	static const int	INIT_ATT_DMG;
+  private:
 };
 
 #endif // SCAVTRAP_HPP_

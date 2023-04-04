@@ -7,14 +7,14 @@
 // Class declaration
 class Animal {
  public:
-  Animal();
-  Animal(const Animal &other);
-  Animal &operator=(const Animal &rhs);
-  std::string getType()const;
-  virtual ~Animal();	
- void virtual makeSound()const;
-protected:
+	Animal();
+	Animal(const Animal &other);
+	Animal &operator=(const Animal &rhs);
+	std::string getType()const;
+	virtual ~Animal();	
+	void virtual makeSound()const;
 	
+protected:
 	std::string type;
  private:
   

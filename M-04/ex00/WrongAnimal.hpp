@@ -6,13 +6,13 @@
 // Class declaration
 class WrongAnimal {
  public:
-  WrongAnimal();
-  WrongAnimal(const WrongAnimal &other);
-  WrongAnimal &operator=(const WrongAnimal &rhs);
-  void makeSound() const;
-  
-  virtual ~WrongAnimal();
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal &other);
+	WrongAnimal &operator=(const WrongAnimal &rhs);
+	virtual ~WrongAnimal();
 
+	void makeSound() const;
+	
 protected:
 	std::string type;
  private:

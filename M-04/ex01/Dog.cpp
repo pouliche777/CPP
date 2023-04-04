@@ -10,54 +10,33 @@ Dog::Dog():Animal (){
 }
 
 // Copy constructor
-Dog::Dog(const Dog &other) : Animal(other) { // call base class copy constructor
-  if (other.brain != nullptr) {
-    this->brain = new Brain(*other.brain); // deep copy of Brain object
-  } else {
-    this->brain = nullptr;
-	std::cout<< "DOg COPY CALLED!" << std::endl;
-  }
+Dog::Dog(const Dog &other) :Animal () { // call base class copy constructor
+    this->brain = new Brain(*other.brain);
+	*this = other;
 }
 
-// // Copy assignment operator
-// Dog &Dog::operator=(const Dog &rhs) {
-//   if (this == &rhs) { // check for self-assignment
-//     return *this;
-//   }
-
-//   Animal::operator=(rhs); // call base class assignment operator
-
-//   delete brain; // free existing dynamically allocated memory, if any
-//   if (rhs.brain != nullptr) {
-//     this->brain = new Brain(*rhs.brain); // deep copy of Brain object
-//   } else {
-//     this->brain = nullptr;
-//   }
-
-//   return *this;
-// }
 Dog		&Dog::operator=( Dog const &rhs )
 {
-	delete this->brain;
 	this->type = rhs.getType();
-	this->brain = new Brain;
-	// }
 	*(this->brain) = *(rhs.getBrain());
-	// this->type = rhs.getType();
-	// *(this->brain) = *(rhs.getBrain());
 	return *this;
 }
+Dog* Dog :: clone() const{
 
+		//Dog *dog = new Dog;
+		//*dog = *this; 
+        //return (dog);
+		return new Dog(*this);
+    }
 Animal	&Dog::operator=( Animal const &rhs )
 {
-	delete this->brain;
-	this->type = rhs.getType();
-	this->brain = new Brain;
-	// }
-	*(this->brain) = *(rhs.getBrain());
-	// this->type = rhs.getType();
-	// *(this->brain) = *(rhs.getBrain());
-	return *this;
+	if (this == &rhs) {
+        return *this;
+    }
+    this->type = rhs.getType();
+    delete this->brain;
+    this->brain = new Brain(*rhs.getBrain());
+    return *this;
 }
 
 

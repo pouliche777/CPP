@@ -12,12 +12,14 @@ class Animal {
 	Animal(const Animal &other);
 	virtual Animal &operator=(const Animal &rhs);
 	std::string getType()const;
-	virtual ~Animal();	
+	virtual ~Animal();
+
 	void virtual makeSound()const;
 	virtual Brain *getBrain()const = 0;
+	virtual Animal* clone() const = 0; 
+	
 
 protected:
-	
 	std::string type;
  private:
   

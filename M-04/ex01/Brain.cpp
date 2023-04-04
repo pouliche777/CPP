@@ -3,7 +3,7 @@
 
 // Default constructor
 Brain::Brain() {
-	std::cout << "Animal constructor called!" << std::endl;
+	std::cout << "Brain constructor called!" << std::endl;
 	 return; 
 }
 
@@ -20,8 +20,7 @@ Brain::Brain(const Brain &other) {
  Brain &Brain::operator=(const Brain &rhs) {
 	if(this->Idea != rhs.Idea){
 		for(int i =0; i< 100; i++)
-			this->Idea[i] = rhs.Idea[i];
-  }
+			this->Idea[i] = rhs.Idea[i];}
    	return *this;
  }
 

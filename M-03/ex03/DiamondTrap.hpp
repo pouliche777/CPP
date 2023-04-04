@@ -10,8 +10,8 @@ class DiamondTrap :public ScavTrap, public FragTrap  {
 	~DiamondTrap();
   	DiamondTrap(const DiamondTrap &other);
   	DiamondTrap &operator=(const DiamondTrap &rhs);
-  	using				ScavTrap::attack;
-
+  	
+	using				ScavTrap::attack;
  	void whoAmI();
 
  private:

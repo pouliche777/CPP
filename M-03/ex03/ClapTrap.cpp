@@ -1,21 +1,23 @@
 
 #include "ClapTrap.hpp"
-
+const int	ClapTrap::INIT_HIT_P = 10;
+const int	ClapTrap::INIT_ENERGY_P = 10;
+const int	ClapTrap::INIT_ATT_DMG = 0;
 // Default constructor
 ClapTrap::ClapTrap(void) { 
 	std::cout<< "Default constructor for ClapTrap has been called!" << std::endl; 
 	this->name ="DEFAULT";
-	this->AttackDamage = 0;
-	this->EnergyPoints = 10;
-	this->HitPoints = 10;
+	this->AttackDamage = ClapTrap:: INIT_ATT_DMG;
+	this->EnergyPoints = ClapTrap:: INIT_ENERGY_P;
+	this->HitPoints = ClapTrap:: INIT_HIT_P;
 	this->MaxHitPoints = HitPoints;
 	return; }
-
+// Name constructor
 ClapTrap::ClapTrap(std::string name) { 
 	std::cout<< "A new ClapTrap is born!!!  His/her name is : " << name << std::endl; 
-	this->AttackDamage = 0;
-	this->EnergyPoints = 10;
-	this->HitPoints = 10;
+	this->AttackDamage = ClapTrap:: INIT_ATT_DMG;
+	this->EnergyPoints = ClapTrap:: INIT_ENERGY_P;
+	this->HitPoints = ClapTrap:: INIT_HIT_P;
 	this->MaxHitPoints = HitPoints;
 	this->name = name;
 	return; }
@@ -57,12 +59,12 @@ void ClapTrap::attack(const std::string& target){
 		this->HitPoints = 0;
 }
 
-  void ClapTrap::beRepaired(unsigned int amount){
+void ClapTrap::beRepaired(unsigned int amount){
 	if (this->EnergyPoints <= 0){
 		std::cout << this->name << " can't be repaired because he has no energy" <<  std::endl;
 		return ;
 	}
-	if (this->HitPoints == 0){
+	if (this->HitPoints <= 0){
 		std::cout << this->name << " is dead. He can't perform any action!! " <<  std::endl;
 		return ;
 	}
@@ -71,9 +73,7 @@ void ClapTrap::attack(const std::string& target){
 	if (this->HitPoints <= this->MaxHitPoints){
 		std::cout << this->name << " is fully repaired, he has " << this->MaxHitPoints << " hitpoints !!!" << std::endl;
 		this->HitPoints = this->MaxHitPoints;
-	}
-
-	
+	}	
 }
 // Default destructor
 ClapTrap::~ClapTrap() { 

@@ -10,43 +10,33 @@ Cat::Cat() : AAnimal () {
 	}
 
 // Copy constructor
-Cat::Cat(const Cat &other) : AAnimal(other) { // call base class copy constructor
-  if (other.brain != nullptr) {
-    this->brain = new Brain(*other.brain); // deep copy of Brain object
-  } else {
-    this->brain = nullptr;
-  }
+Cat::Cat(const Cat &other): AAnimal ()  { 
+    this->brain = new Brain(*other.brain);
+	*this = other;
+
 }
 
-// Copy assignment operator
-// Cat &Cat::operator=(const Cat &rhs) {
-//   if (this == &rhs) { // check for self-assignment
-//     return *this;
-//   }
-
-//   delete brain; // free existing dynamically allocated memory, if any
-//   if (rhs.brain != nullptr) {
-//     this->brain = new Brain(*rhs.brain); // deep copy of Brain object
-//   } else {
-//     this->brain = nullptr;
-//   }
-
-//   return *this;
-//}
 Cat		&Cat::operator=( Cat const &rhs )
 {
 	this->type = rhs.getType();
+	//this->brain = new Brain;
 	*(this->brain) = *(rhs.getBrain());
 	return *this;
 }
 
+Cat* Cat :: clone() const {
+        return new Cat(*this);
+    }
 AAnimal	&Cat::operator=( AAnimal const &rhs )
 {
-	this->type = rhs.getType();
-	*(this->brain) = *(rhs.getBrain());
-	return *this;
+	if (this == &rhs) {
+        return *this;
+    }
+    this->type = rhs.getType();
+    delete this->brain;
+    this->brain = new Brain(*rhs.getBrain());
+    return *this;
 }
-
 
 // Default destructor
 Cat::~Cat() { 

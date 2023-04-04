@@ -1,13 +1,15 @@
 
 #include "ScavTrap.hpp"
 
-
+const int	ScavTrap::INIT_HIT_P = 100;
+const int	ScavTrap::INIT_ENERGY_P = 50;
+const int	ScavTrap::INIT_ATT_DMG = 20;
 // Default constructor
 ScavTrap::ScavTrap(){
 	std::cout<< "Default constructor for ScavTRap has been called!" << std::endl; 
-	this->AttackDamage = 20;
-	this->EnergyPoints = 50;
-	this->HitPoints = 100;
+	this->AttackDamage = ScavTrap::INIT_ATT_DMG;
+	this->EnergyPoints = ScavTrap::INIT_ENERGY_P;
+	this->HitPoints = ScavTrap::INIT_HIT_P;
 	this->MaxHitPoints = HitPoints;
 	this->name = "DEFAULT";
 }
@@ -16,9 +18,9 @@ ScavTrap::ScavTrap(){
 ScavTrap::ScavTrap(std::string name) { 
 	
 	std::cout<< "Name constructor for ScavTRap has been called!" << name << std::endl; 
-	this->AttackDamage = 20;
-	this->EnergyPoints = 50;
-	this->HitPoints = 100;
+	this->AttackDamage = ScavTrap::INIT_ATT_DMG;
+	this->EnergyPoints = ScavTrap::INIT_ENERGY_P;
+	this->HitPoints = ScavTrap::INIT_HIT_P;;
 	this->MaxHitPoints = HitPoints;
 	this->name = name;
 	return; }

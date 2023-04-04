@@ -6,11 +6,12 @@
 // Class declaration
 class WrongCat : public WrongAnimal{
  public:
-  WrongCat();
-  WrongCat(const WrongCat &other);
-  WrongCat &operator=(const WrongCat &rhs);
- virtual ~WrongCat();
-void	makeSound() const;
+	WrongCat();
+	WrongCat(const WrongCat &other);
+	WrongCat &operator=(const WrongCat &rhs);
+	virtual ~WrongCat();
+	
+	void	makeSound() const;
  private:
   
 };

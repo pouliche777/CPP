@@ -12,8 +12,10 @@ class Cat : public AAnimal{
 	virtual AAnimal	&operator=( const AAnimal &other );
 	Cat &operator=(const Cat &rhs);
 	virtual ~Cat();
+	
 	virtual void makeSound(void)const;
 	virtual Brain *getBrain()const;
+	virtual Cat* clone() const;
  private:
 	Brain *brain;
   

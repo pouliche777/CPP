@@ -12,12 +12,13 @@ class AAnimal {
 	AAnimal(const AAnimal &other);
 	virtual AAnimal &operator=(const AAnimal &rhs);
 	std::string getType()const;
-	virtual ~AAnimal();	
-	void virtual makeSound()const =0;
-	virtual Brain *getBrain()const = 0;
+	virtual ~AAnimal();
 
-protected:
+	void virtual makeSound()const = 0;
+	virtual Brain *getBrain()const = 0;
+	virtual AAnimal* clone() const = 0; 
 	
+protected:
 	std::string type;
  private:
   

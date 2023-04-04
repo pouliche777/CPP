@@ -13,9 +13,13 @@ class FragTrap : virtual public ClapTrap {
   	
  	void highFivesGuys(void);
 	int getAttackDamage(void);
-
+	
+ protected:
+ 	static const int	INIT_HIT_P;
+	static const int	INIT_ENERGY_P;
+	static const int	INIT_ATT_DMG;
  private:
-  
+
 };
 
 #endif // FRAGTRAP_HPP_

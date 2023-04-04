@@ -1,13 +1,16 @@
 
 #include "FragTrap.hpp"
 
+const int	FragTrap::INIT_HIT_P = 100;
+const int	FragTrap::INIT_ENERGY_P = 100;
+const int	FragTrap::INIT_ATT_DMG = 30;
 // Default constructor
 FragTrap::FragTrap() { 
 	
 	std::cout<< "Default constructor for FragTrap has been called!" << std::endl; 
-	this->AttackDamage = 30;
-	this->EnergyPoints = 100;
-	this->HitPoints = 100;
+	this->AttackDamage = FragTrap::INIT_ATT_DMG;
+	this->EnergyPoints = FragTrap:: INIT_ENERGY_P;
+	this->HitPoints = FragTrap:: INIT_HIT_P;
 	this->MaxHitPoints = HitPoints;
 	this->name = name;
 	return; }
@@ -17,9 +20,9 @@ FragTrap::FragTrap() {
 FragTrap::FragTrap(std::string name) { 
 	
 	std::cout<< "A new FragTrap is born!!!  His/her name is : " << name << std::endl; 
-	this->AttackDamage = 30;
-	this->EnergyPoints = 100;
-	this->HitPoints = 100;
+	this->AttackDamage = FragTrap::INIT_ATT_DMG;
+	this->EnergyPoints = FragTrap:: INIT_ENERGY_P;
+	this->HitPoints = FragTrap:: INIT_HIT_P;
 	this->MaxHitPoints = HitPoints;
 	this->name = name;
 	return; }

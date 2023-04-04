@@ -9,9 +9,12 @@ class Dog : public AAnimal{
 	Dog(const Dog &other);
 	Dog &operator=(const Dog &rhs);
 	virtual AAnimal	&operator=( AAnimal const &rhs );
+	virtual ~Dog();
+	
 	virtual void makeSound(void)const;
 	virtual Brain *getBrain()const;
-	virtual ~Dog();
+	virtual Dog* clone() const ;
+	
 
 
  private:

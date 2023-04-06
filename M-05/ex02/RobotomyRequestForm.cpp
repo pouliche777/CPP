@@ -30,7 +30,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 
 bool RobotomyRequestForm :: execute(Bureaucrat const & executor)const{
 
-	try{
 		if (this->isSigned == false)
 			throw(Form:: NotSigned());
 		if (executor.getGrade() > this->executionGrade)
@@ -45,13 +44,6 @@ bool RobotomyRequestForm :: execute(Bureaucrat const & executor)const{
 		}
 		else
 			std:: cout << "Robotomy of " << this->target << " failed!!" << std:: endl;
-	}
-	
-
-	catch(const std::exception &e){
-		std::cout<< executor << " could not execute the Robotomy because his/her"  << e.what() << std::endl;
-		return(false);
-	}
 	std:: cout << executor.getName() << " executed a " << this->getName() << std:: endl;
 	return(true);
 }

@@ -34,14 +34,14 @@ class Form {
 			public:
 				virtual const char* what()const throw() {
 				
-					return("  is already sign! ");
+					return("Form is already sign! ");
 				}
 		};
 		class NotSigned : public std::exception{
 			public:
 				virtual const char* what()const throw() {
 				
-					return(" form was not signed!!!! ");
+					return("Form was not signed!!!! ");
 				}
 		};
 };

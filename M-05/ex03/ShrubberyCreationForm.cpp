@@ -33,7 +33,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() { return; }
 
 bool ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-	try{
 			if (this->isSigned == false)
 				throw(Form:: NotSigned());
 			if (executor.getGrade() > this->executionGrade)
@@ -46,13 +45,7 @@ bool ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			}
 			else 
 				std::cout << "Could not create the file" << std::endl;
-	}
-
-	catch(const std::exception &e){
-		std::cout<< executor << " could not create the garden because his/her"  << e.what() << std::endl;	
-		return (false);
-	}
 	std:: cout << executor.getName() << " executed a " << this->getName() << std:: endl;
 	return(true);
 
-}
+	}

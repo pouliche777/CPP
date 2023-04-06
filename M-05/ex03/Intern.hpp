@@ -20,7 +20,7 @@ class Intern {
 			public:
 				virtual const char* what()const throw() {
 				
-					return(" form does not exist!!");
+					return("Form does not exist!!");
 				}
  private:
   

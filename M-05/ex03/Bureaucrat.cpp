@@ -7,16 +7,12 @@ Bureaucrat::Bureaucrat() { return; }
 
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name){
-	try{
+	{
 		if (grade < 1)
 			throw (GradeTooLowException());
 		else if (grade > 150)
 			throw (GradeTooHighException());
 		this->grade = grade;
-	}
-	catch(const std::exception& e){
-		std::cout<< this->getName() << e.what() << " Grade will be set to 150, the wrost grade of all!!" << std::endl;
-		this->grade = 150;
 	}
 }
 
@@ -68,20 +64,15 @@ void Bureaucrat::promotion(){
 	}
 }
 	void Bureaucrat::signForm(Form &form){
-		try{
-			if (this->getGrade() > form.getSignedGrade())
-				throw (Bureaucrat::GradeTooHighException());
-			else if (form.getIsSigned()== true)
-				throw (Form::AlreadySigned());
-			else{
-				form.setIsSigned();
-				std::cout<< this->getName() << " signed " << form.getName() <<  std::endl;
-		}
-		}
-		catch(const std::exception& e){
-			std::cout<< this->getName() << " couldn't sign " << form.getName() << " because " << e.what() <<  std::endl;
-		}
+		if (this->getGrade() > form.getSignedGrade())
+			throw (Bureaucrat::GradeTooHighException());
+		else if (form.getIsSigned()== true)
+			throw (Form::AlreadySigned());
+		else{
+			form.setIsSigned();
+			std::cout<< this->getName() << " signed " << form.getName() <<  std::endl;
 	}
+}
 
 void Bureaucrat::executeForm(Form const & form){
 

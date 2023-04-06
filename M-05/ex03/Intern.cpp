@@ -39,20 +39,12 @@ std::string	form[3] = {"Shrubbery creation form", "Presidential pardon form", "R
 			return(new PresidentialPardonForm(target));
 		}
 		default:{ 
-			try{
 			throw(Intern::NoForm());
-			return(NULL);
-			}
-			catch(std::exception &e){
-				std::cout << name << e.what() << std::endl;
-				exit(0);
 			}
 		}
-		
-	}
 	return (NULL);
-}
-
+	
+	}
 
 
 

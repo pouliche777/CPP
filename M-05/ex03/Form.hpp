@@ -11,7 +11,7 @@ class Form {
 	Form(std::string name, int executionGrade, int signedGrade);
 	Form(const Form &other);
 	Form &operator=(const Form &rhs);
-	~Form();
+	virtual ~Form();
 // accessors
 	std::string getName()const;
 	int getExecutionGrade()const;

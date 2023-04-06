@@ -6,23 +6,15 @@
 Form::Form() {}
  
 Form::Form(std::string name, int executionGrade, int signedGrade): name(name){ 
-	try{
-		if (signedGrade < 1)
-			throw (Bureaucrat::GradeTooLowException());
-		else if (signedGrade > 150)
-			throw (Bureaucrat::GradeTooHighException());
-		this->signedGrade = signedGrade;
-		this->executionGrade = 150;
-		 this->isSigned = false;
-	}
-	 catch(const std::exception& e){
-		std::cout<< this->getName() << e.what() << " Grade will be set to 150, the wrost grade of all!!" << std::endl;
-		this->signedGrade = 150;
-		this->isSigned = false;
-		
-	}
-	return; 
+	if (signedGrade < 1)
+		throw (Bureaucrat::GradeTooLowException());
+	else if (signedGrade > 150)
+		throw (Bureaucrat::GradeTooHighException());
+	this->signedGrade = signedGrade;
+	this->executionGrade = 150;
+	this->isSigned = false;
 
+	return; 
 }
 
 // Copy constructor
@@ -69,16 +61,9 @@ std::ostream &operator<<(std::ostream &out,  const Form &other){
 }
 
 void	Form::beSigned(Bureaucrat const & b){
-
-	try{
-		if(b.getGrade() > this->getSignedGrade())
+	if(b.getGrade() > this->getSignedGrade())
 			throw(Bureaucrat::GradeTooHighException());
 		this->isSigned = true;
-	}
-	catch(const std::exception& e){
-		std::cout<< b.getName() << e.what()
-		 << "don't have the permission to sign this form " << std::endl;
-	}
 }
 void Form::setIsSigned(){
 	this->isSigned= true;

@@ -33,17 +33,11 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 PresidentialPardonForm::~PresidentialPardonForm() { return; }
 
   bool PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-	try{
 	if (this->isSigned == false)
 			throw(Form:: NotSigned());
 	if (executor.getGrade() > this->executionGrade)
 			throw(Bureaucrat:: GradeTooHighException());
 	std::cout<< target << " has been pardoned by Zaphod Beeblebrox. " << std::endl;
-	}
-	catch(const std::exception & e){
-		std::cout<< executor << " could not execute the presidential pardon because his/her"  << e.what() << std::endl;
-		return (false);
-	}
 	std:: cout << executor.getName() << " executed a " << this->getName() << std:: endl;
 	return (true);
   }

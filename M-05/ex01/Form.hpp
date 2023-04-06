@@ -31,7 +31,7 @@ class Form {
 			public:
 				virtual const char* what()const throw() {
 				
-					return("  is already sign! ");
+					return("Contract is already sign! ");
 				}
 		};
 };

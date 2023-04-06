@@ -32,13 +32,13 @@ class Bureaucrat {
 			public:
 				virtual const char* what()const throw() {
 				
-					return(" grade is too low! ");
+					return(" Grade is too low! ");
 			}
 		};
 		class GradeTooHighException : public std::exception{
 			public:
 				virtual  const char* what() const throw() {
-					return(" grade is too High! ");
+					return(" Grade is too High! ");
 			}
 		};
 };

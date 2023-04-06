@@ -1,5 +1,6 @@
 #include "bureaucrat.hpp"
 int main(){
+	try{
 	Bureaucrat Bureaucrat1("Dimitri", 151);
 	Bureaucrat Bureaucrat2("Alexei", 0);
 	Bureaucrat Bureaucrat3("Vladimir", 55);
@@ -19,4 +20,8 @@ int main(){
 	std::cout << Bureaucrat3 <<std::endl;
 	std::cout << Bureaucrat4 <<std::endl;
 	std::cout << Bureaucrat5 <<std::endl;
+	}
+	catch(const std::exception& e){
+		std::cerr << e.what() << std ::endl;
+	}
 }

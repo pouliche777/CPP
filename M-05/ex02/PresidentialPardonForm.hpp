@@ -15,6 +15,7 @@ class PresidentialPardonForm : public Form{
   bool virtual execute(Bureaucrat const & executor) const;
 
  private:
+ std::string target;
   
 };
 

@@ -1,8 +1,7 @@
-NAME		=	bureaucrat
+NAME		=	iter
 
-SRC			=	Bureaucrat.cpp \
-				main.cpp \
-				Form.cpp
+SRC			=	main.cpp \
+				iter.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -30,6 +29,4 @@ fclean: clean
 	rm -rf $(EXEC)
 	
 re:	fclean all
-
-
 

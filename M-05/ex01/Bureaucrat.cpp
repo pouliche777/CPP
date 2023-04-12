@@ -40,7 +40,7 @@ int	Bureaucrat::getGrade()const{
 	}
 
 void Bureaucrat::demotion(){
-		if (this->grade + 1 >150)
+		if (this->grade + 1 > 150)
 			throw (GradeTooHighException());
 		this->grade = grade+1;
 		std::cout << "Bureaucrat " << this->getName() << " lost a rank!" << std::endl;

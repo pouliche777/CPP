@@ -17,6 +17,7 @@ class ShrubberyCreationForm : public Form{
   bool execute(Bureaucrat const & executor) const;
 
  private:
+ 	std::string target;
   
 };
 

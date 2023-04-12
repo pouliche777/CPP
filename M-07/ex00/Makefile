@@ -1,8 +1,7 @@
-NAME		=	bureaucrat
+NAME		=	template
 
-SRC			=	Bureaucrat.cpp \
-				main.cpp \
-				Form.cpp
+SRC			=	main.cpp \
+				whatever.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -30,6 +29,4 @@ fclean: clean
 	rm -rf $(EXEC)
 	
 re:	fclean all
-
-
 

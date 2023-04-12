@@ -3,31 +3,27 @@
 #include "Bureaucrat.hpp"
 
 // Default constructor
-Form::Form() {}
- 
-Form::Form(std::string name, int executionGrade, int signedGrade): name(name){ 
-	if (signedGrade < 1)
-		throw (Bureaucrat::GradeTooLowException());
-	else if (signedGrade > 150)
-		throw (Bureaucrat::GradeTooHighException());
-	this->signedGrade = signedGrade;
-	this->executionGrade = 150;
-	this->isSigned = false;
-
+Form::Form() :name ("DEFAULT"),executionGrade(0), signedGrade(0)   { 
+	
+	return; }
+Form::Form(std::string name, int executionGrade, int signedGrade): name(name),executionGrade(executionGrade), signedGrade(signedGrade) { 
+		if (signedGrade < 1)
+			throw (Form::GradeTooHighException());
+		else if (signedGrade > 150)
+			throw (Form::GradeTooLowException());
+		 this->isSigned = false;
 	return; 
 }
 
 // Copy constructor
-Form::Form(const Form &other) {
+Form::Form(const Form &other):name(other.getName()),executionGrade(other.getExecutionGrade()), signedGrade(other.getSignedGrade())  {
   *this = other;
   return;
 }
 
 // Copy assignment overload
 Form &Form::operator=(const Form &rhs) {
-  	this->isSigned = rhs.isSigned;
-	this->executionGrade = rhs.executionGrade;
-	this->signedGrade = rhs.signedGrade;
+	this->isSigned = rhs.getIsSigned();
   return *this;
 }
 

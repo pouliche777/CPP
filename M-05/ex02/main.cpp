@@ -21,11 +21,11 @@ int main(){
 
 	
 	//Bureaucrat5.signForm(formulaire3);
-	Bureaucrat1.demotion();
-	Bureaucrat2.promotion();
-	Bureaucrat3.demotion();
-	Bureaucrat4.promotion();
-	Bureaucrat5.promotion();
+	// Bureaucrat1.demotion();
+	// Bureaucrat2.promotion();
+	// Bureaucrat3.demotion();
+	// Bureaucrat4.promotion();
+	// Bureaucrat5.promotion();
 	formulaire1.beSigned(Bureaucrat3);
 	formulaire2.beSigned(Bureaucrat2);
 	formulaire3.beSigned(Bureaucrat2);

@@ -1,11 +1,11 @@
 #include "bureaucrat.hpp"
 int main(){
 	try{
-	Bureaucrat Bureaucrat1("Dimitri", 151);
-	Bureaucrat Bureaucrat2("Alexei", 0);
+	Bureaucrat Bureaucrat1("Dimitri", 149);
+	Bureaucrat Bureaucrat2("Alexei", 2);
 	Bureaucrat Bureaucrat3("Vladimir", 55);
 	Bureaucrat Bureaucrat4("Boris", 103);
-	Bureaucrat Bureaucrat5("Igor", 1);
+	Bureaucrat Bureaucrat5("Igor", 3);
 
 
 	Bureaucrat1.demotion();

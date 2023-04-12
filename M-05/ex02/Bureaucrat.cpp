@@ -54,7 +54,7 @@ void Bureaucrat::promotion(){
 void Bureaucrat::signForm(Form &form){
 	
 			if (this->getGrade() > form.getSignedGrade())
-				throw (Bureaucrat::GradeTooHighException());
+				std::cout << this->getName() << " could not sign because his / her grade is to low!" << std::endl;
 			else if (form.getIsSigned()== true)
 				throw (Form::AlreadySigned());
 			else{
@@ -65,13 +65,13 @@ void Bureaucrat::signForm(Form &form){
 
 void Bureaucrat::executeForm(Form const & form){
 
-
-	form.execute(*this);
-	//	std::cout << this->name << " executed " <<  form.getName()<< "!" << std::endl;
-	//else
-	//	std::cout << this->name << " could not execute " <<  form.getName() << std::endl;
+	try{
+		form.execute(*this);
+	}
+	catch(const std::exception& e){
+			std::cout << e.what()  << std::endl;
+	}
 }
-
 std::ostream &operator<<(std::ostream &out,  const Bureaucrat &other){
     out << other.getName() << " (bureaucrat grade " << other.getGrade() << ")" ;
     return (out);

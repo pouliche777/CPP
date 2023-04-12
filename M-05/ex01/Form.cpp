@@ -3,28 +3,27 @@
 #include "Bureaucrat.hpp"
 
 // Default constructor
-Form::Form() { return; }
-Form::Form(std::string name, int executionGrade, int signedGrade): name(name){ 
+Form::Form() :name ("DEFAULT"),executionGrade(0) ,signedGrade(0)   { 
+	
+	return; }
+Form::Form(std::string name, int executionGrade, int signedGrade): name(name), executionGrade(executionGrade), signedGrade(signedGrade){ 
 		if (signedGrade < 1)
-			throw (Bureaucrat::GradeTooLowException());
+			throw (Form::GradeTooHighException());
 		else if (signedGrade > 150)
-			throw (Bureaucrat::GradeTooHighException());
-		this->signedGrade = signedGrade;
+			throw (Form::GradeTooLowException());
 		 this->isSigned = false;
 	return; 
 }
 
 // Copy constructor
-Form::Form(const Form &other) {
+Form::Form(const Form &other):name(other.getName()),executionGrade(other.getExecutionGrade()), signedGrade(other.getSignedGrade())  {
   *this = other;
   return;
 }
 
 // Copy assignment overload
 Form &Form::operator=(const Form &rhs) {
-  	this->isSigned = rhs.isSigned;
-	this->executionGrade = rhs.executionGrade;
-	this->signedGrade = rhs.signedGrade;
+	isSigned = rhs.getIsSigned();
   return *this;
 }
 
@@ -57,8 +56,8 @@ std::ostream &operator<<(std::ostream &out,  const Form &other){
     return (out);
 }
 
-void	Form::beSigned(Bureaucrat const &b){
-		if(b.getGrade() > this->getSignedGrade())
+void	Form::beSigned(Bureaucrat const & b){
+	if(b.getGrade() > this->getSignedGrade())
 			throw(Bureaucrat::GradeTooHighException());
 		this->isSigned = true;
 }

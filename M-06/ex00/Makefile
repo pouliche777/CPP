@@ -18,6 +18,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+.cpp.o: $(SRCS) $(OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 clean:

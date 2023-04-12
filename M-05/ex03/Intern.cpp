@@ -33,10 +33,10 @@ std::string	form[3] = {"Shrubbery creation form", "Presidential pardon form", "R
 			return(new ShrubberyCreationForm(target));
 		}
 		case 1 :{
-			return(new RobotomyRequestForm(target));
+			return(new PresidentialPardonForm(target));
 		}
 		case 2:{
-			return(new PresidentialPardonForm(target));
+			return(new RobotomyRequestForm(target));
 		}
 		default:{ 
 			throw(Intern::NoForm());

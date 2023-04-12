@@ -2,22 +2,18 @@
 #include "RobotomyRequestForm.hpp"
 
 // Default constructor
-RobotomyRequestForm::RobotomyRequestForm() { 
-	this->name  = "Robotomy request form";
-	this->target = "DEFAULT";
-	this->executionGrade = 45;
-	this->signedGrade = 72;
+RobotomyRequestForm::RobotomyRequestForm():Form ("Robotomy request form", 45, 72){ 
+	this->target = "default";
+	return; }
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Robotomy request form", 45, 72){
+	this->target = target;
+
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target){
-	this->name  = "Robotomy request form";
-	this->target = target;
-	this->executionGrade = 45;
-	this->signedGrade = 72;
- }
-
 // Copy constructor
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : Form(other) {
+  this->target= other.target;
   *this = other;
   return;
 }
@@ -30,10 +26,9 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 
 bool RobotomyRequestForm :: execute(Bureaucrat const & executor)const{
 
-	
-		if (this->isSigned == false)
+		if (this->getIsSigned() == false)
 			throw(Form:: NotSigned());
-		if (executor.getGrade() > this->executionGrade)
+		if (executor.getGrade() > this->getExecutionGrade())
 			throw(Bureaucrat:: GradeTooHighException());
 		std:: cout << "bizzzzzzzzz zormmmmmmmm  (drill noises)" << std:: endl;
 		std::random_device rd;
@@ -45,8 +40,6 @@ bool RobotomyRequestForm :: execute(Bureaucrat const & executor)const{
 		}
 		else
 			std:: cout << "Robotomy of " << this->target << " failed!!" << std:: endl;
-	
-
 	std:: cout << executor.getName() << " executed a " << this->getName() << std:: endl;
 	return(true);
 }

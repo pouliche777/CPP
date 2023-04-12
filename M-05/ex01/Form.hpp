@@ -23,8 +23,8 @@ class Form {
  private:
 	const std::string name;
 	bool isSigned;
-	int executionGrade;
-	int signedGrade;
+	const int executionGrade;
+	const int signedGrade;
 
 	public :
 		class AlreadySigned : public std::exception{
@@ -33,6 +33,19 @@ class Form {
 				
 					return("Contract is already sign! ");
 				}
+		};
+		class GradeTooLowException : public std::exception{
+			public:
+				virtual const char* what()const throw() {
+				
+					return(" Form grade is too low! ");
+			}
+		};
+		class GradeTooHighException : public std::exception{
+			public:
+				virtual  const char* what() const throw() {
+					return(" Form grade is too High! ");
+			}
 		};
 };
 

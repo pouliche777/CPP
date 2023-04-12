@@ -22,12 +22,12 @@ class Form {
 	void	beSigned(const  Bureaucrat & b);
 	virtual bool execute(Bureaucrat const & executor)const = 0;
 
- protected:
-	std::string name;
+ private:
+	const std::string name;
 	bool isSigned;
-	int executionGrade;
-	int signedGrade;
-	std::string target;
+	const int executionGrade;
+	const int signedGrade;
+
 
 	public :
 		class AlreadySigned : public std::exception{
@@ -43,6 +43,19 @@ class Form {
 				
 					return("Form was not signed!!!! ");
 				}
+		};
+		class GradeTooLowException : public std::exception{
+			public:
+				virtual const char* what()const throw() {
+				
+					return(" Form grade is too low! ");
+			}
+		};
+		class GradeTooHighException : public std::exception{
+			public:
+				virtual  const char* what() const throw() {
+					return(" Form grade is too High! ");
+			}
 		};
 };
 

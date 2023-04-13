@@ -7,12 +7,11 @@ Bureaucrat::Bureaucrat() { return; }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name){
 		if (grade < 1)
-			throw (GradeTooLowException());
-		else if (grade > 150)
 			throw (GradeTooHighException());
+		else if (grade > 150)
+			throw (GradeTooLowException());
 		this->grade = grade;
 	}
-
 
 // Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other):name(other.name) {
@@ -41,13 +40,13 @@ int	Bureaucrat::getGrade()const{
 void Bureaucrat::demotion(){
 	
 		if (this->grade + 1 >150)
-			throw (GradeTooHighException());
+			throw (GradeTooLowException());
 		this->grade = grade+1;
 		std::cout << "Bureaucrat " << this->getName() << " lost a rank!" << std::endl;
 }
 void Bureaucrat::promotion(){
 		if (this->grade - 1 < 1)
-			throw (GradeTooLowException());
+			throw (GradeTooHighException());
 		this->grade = grade -1;
 		std::cout << "Bureaucrat " << this->getName() << " got promoted" << std::endl;
 	}

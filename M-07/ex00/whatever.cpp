@@ -19,5 +19,4 @@ T maxT(T &a, T &b){
 		return a;
 	else
 		return b;
-
 }

@@ -1,6 +1,7 @@
-NAME		=	MutuantStack
+NAME		=	Fixed
 
-SRC			=	main.cpp 
+SRC			=	main.cpp \
+				Fixed.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 

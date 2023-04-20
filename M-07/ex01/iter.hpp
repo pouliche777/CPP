@@ -3,7 +3,7 @@
 #include <iostream>
 
 template <typename T>
-void iter(T *tab, int size, void (*ptrF)(T arg));
+void iter(T *tab, int size, void (*ptrF)(T const & arg));
 template <typename T>
 void showTab(T arg);
 

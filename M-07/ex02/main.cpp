@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+// #define MAX_VAL 750
 // int main(int, char**)
 // {
 //     Array<int> numbers(MAX_VAL);
@@ -51,17 +51,44 @@
 //     delete [] mirror;//
 //     return 0;
 // }
+
 int main()
 {
-	Array< int > intArray0( 12 );
-    Array< int > intArray1( 6 );
-	 Array< float > intArray2( 6 );
-	for (unsigned int i=0; i< intArray0.size(); i++){
-		std::cout <<  intArray0[i] << std::endl;
-	}
-	for (unsigned int i=0; i< intArray2.size(); i++){
-		std::cout <<  intArray2[i] << std::endl;
-	}
+	Array< int > intArray( 12 );
+	Array< std::string > stringArray( 6 );
+	Array< double > doubleArray( 6 );
 
+	for (unsigned int i=0; i< intArray.size(); i++){
+		if( i % 2 ==0)
+			intArray[i] = 2;
+		else	
+			intArray[i] = 4;
+
+	}
+	for (unsigned int i=0; i< doubleArray.size(); i++){
+		if( i % 2 ==0)
+			doubleArray[i] = 2.4;
+		else	
+			doubleArray[i] = 4.2;
+
+	}
+	for (unsigned int i=0; i< stringArray.size(); i++){
+		if( i % 2 ==0)
+			stringArray[i] = "poulet";
+		else	
+			stringArray[i] = "cochon";
+
+	}
+	for (unsigned int i=0; i< stringArray.size(); i++){
+		std::cout <<  stringArray[i] << std::endl;
+	}
+	
+	for (unsigned int i=0; i< intArray.size(); i++){
+		std::cout <<  intArray[i] << std::endl;
+	}
+	for (unsigned int i=0; i< doubleArray.size(); i++){
+		std::cout <<  doubleArray[i] << std::endl;
+	}
+	
 	return 0;
 }

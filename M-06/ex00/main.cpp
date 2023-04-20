@@ -50,7 +50,7 @@ void printConvertInt(int c){
 	if( std::isprint(static_cast<char>(c)))
 		std::cout<< "char :  " << static_cast<char>(c) << std::endl;
 	else{
-		if (c >= 0 && c <= 127) {
+		if ((c >= 0 && c <= 127) && (fmod(c, 1) == 0)) {
 			std::cout << "char :   NON DISPLAYABLE" << std::endl;
 		}
 		else
@@ -65,7 +65,7 @@ void printConvertDouble(double c){
 	if(fmod(c, 1) == 0 && std::isprint(static_cast<char>(c)))
 		std::cout<< "char :  " << static_cast<char>(c) <<std::endl;
 	else{
-		if (c >= 0 && c <= 127) {
+		if ((c >= 0 && c <= 127) && (fmod(c, 1) == 0))  {
 			std::cout << "char :   NON DISPLAYABLE" << std::endl;
 		}
 		else
@@ -77,7 +77,10 @@ void printConvertDouble(double c){
 	}
 	else 
 		std::cout<< "int :  " << "IMPOSSIBLE" << std::endl;
-	std::cout<< "double :  " << c << std::endl;
+	if (fmod(c, 1) == 0)	
+		std::cout<< "double :  " << c <<  ".0" << std::endl;
+	else
+		std::cout<< "double :  " << c  << std::endl;
 	if (fmod(c, 1) == 0)
 		std::cout<< "float :  " << static_cast<float>(c) << ".0f" << std::endl;
 	else
@@ -88,7 +91,7 @@ void printConvertFloat(float c){
 	if(fmod(c, 1) == 0 && std::isprint(static_cast<char>(c)))
 		std::cout<< "char :  " << static_cast<char>(c) << std::endl;
 	else{
-		if (c >= 0 && c <= 127) {
+		if ((c >= 0 && c <= 127) && (fmod(c, 1) == 0))   {
 			std::cout << "char :   NON DISPLAYABLE" << std::endl;
 		}
 		else

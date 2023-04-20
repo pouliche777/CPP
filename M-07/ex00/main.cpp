@@ -30,8 +30,5 @@ int main ()
 	std::cout << "Max :   "<< maxT(i, j) << std::endl;
 	std::cout << "Min :   "<< minT(str, str1) << std::endl;
 	std::cout << "Max :   "<< maxT(str, str1) << std::endl;
-	
 
-	
-	std::cout << "TEST POUR SWAP"  << std::endl;
 }

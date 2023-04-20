@@ -19,9 +19,10 @@ class MutantStack : public  std::stack< T, Container > {
 	if (this != rhs)
 		return(*this);
   }
-  ~MutantStack(){}
+  virtual ~MutantStack(){}
+	
+	typedef typename Container::iterator iterator;
 
-	typedef typename Container::iterator    iterator;
 
 	 iterator begin(){
 		return this->c.begin();
@@ -29,9 +30,16 @@ class MutantStack : public  std::stack< T, Container > {
 	 iterator end(){
 		return this->c.end();
 	}
- private:
- 	
+	// typename Container::iterator MutantStack<T, Container>::begin() {
+    // 	return this->c.begin();
+	// }
+
+	// typename Container::iterator MutantStack<T, Container>::end() {
+    // 	return this->c.end();
+	// }
+	
   
 };
+
 
 #endif // MUTANTSTACK_HPP_

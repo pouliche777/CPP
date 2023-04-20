@@ -1,7 +1,5 @@
 #include <iostream>
 
-
-
 struct Data{
 	std::string chicken;
 	int chickenNb;
@@ -34,8 +32,8 @@ int main(){
 	//std::cout << deserialize(  )  << std::endl;
 	
     std::cout << deserialize(serialize(data)) << std::endl;
-	 std::cout << deserialize(serialize(data))->chicken << std::endl;
-	  std::cout << deserialize(serialize(data))->chickenNb << std::endl;
+	std::cout << deserialize(serialize(data))->chicken << std::endl;
+	std::cout << deserialize(serialize(data))->chickenNb << std::endl;
 
     delete data;
 

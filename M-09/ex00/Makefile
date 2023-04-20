@@ -1,7 +1,7 @@
-NAME		=	Fixed
+NAME		=	btc
 
 SRC			=	main.cpp \
-				Fixed.cpp \
+				BitcoinExchange.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 

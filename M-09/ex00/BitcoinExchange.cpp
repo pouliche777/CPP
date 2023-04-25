@@ -25,7 +25,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs) {
 BitcoinExchange::~BitcoinExchange() { return; }
 
 // functions
-void BitcoinExchange::checkDate(std::string date)const{
+ void BitcoinExchange::checkDate(std::string date)const{
 	std::time_t result = std::time(nullptr);
     std::tm *tm_ptr = std::localtime(&result);
     char date_str[11];
@@ -96,43 +96,58 @@ void BitcoinExchange:: setToConvert(){
 			isFirstLine= false;
 			continue;
 		}
-		if (!std::regex_match(line, pattern_1))
-        	throw(BadFormat());
+		if (!std::regex_match(line, pattern_1)){
+			std::cerr << RED_CL << "Could not include this line : " << BLUE_CL << line << RED_CL << " because the format was incorect!" <<  DEFAULT_CL << std::endl;
+			continue;
+		}
+        	//throw(BadFormat());
         std::stringstream ss(line);
 		std::getline(ss, date,  '|');
     	std::getline(ss, value);
 		if(std::stod(value) > 1000)
-			throw(WrongValue());
-		checkDate(date);
+		{
+			std::cerr << RED_CL << "Could not include this line : " << BLUE_CL  << line << RED_CL << " because the value is greater than 1000" << DEFAULT_CL << std::endl;
+			continue;
+		}
+			//throw(WrongValue());
+		try{
+			checkDate(date);
+		}
+		catch(const WrongDate& e){
+			std::cerr << RED_CL << "Could not include this line : " << BLUE_CL <<line << RED_CL << std::setw(30) << " because the date is invalid" << DEFAULT_CL << std::endl;
+			continue;
+		}
         toConvert.insert(std::make_pair(date, std::stod(value)));
 		//un container map classe automatiquement les nouvelles entree en ordre croissant.
     }
-	std::multimap< std::string, double>::iterator it;
-	for (it = toConvert.begin(); it != toConvert.end(); ++it) {
-        std::cout << it->first << ": " << it->second << std::endl;
-	}
+	// std::multimap< std::string, double>::iterator it;
+	// for (it = toConvert.begin(); it != toConvert.end(); ++it) {
+    //     std::cout << it->first << ": " << it->second << std::endl;
+	// }
 	inputFile.close();
 }
 void BitcoinExchange::showMeTheMoney(){
 
+	std::cout << "\n\n" << std::endl;
+	std::cout << PINK_CL << "                   SHOW ME THE MONEY" << DEFAULT_CL << std::endl;
 	std::map< std::string, double>::iterator ite;
 	std::multimap< std::string, double>::iterator it;
 	for (it = toConvert.begin(); it != toConvert.end(); ++it) {
 		for (ite = dataBase.begin(); ite != dataBase.end(); ++ite){
 			if(ite->first == it->first){
-				std::cout << std::fixed << std::setprecision(6)<< "Convert bitcoin amount : " << it->second << " using conversion value of " << it->first; 
+				std::cout << std::fixed << std::setprecision(6)<< "Convert bitcoin amount : " << std::setw(10) << it->second << " using conversion value of " << it->first; 
 				std::cout << std::fixed << std::setprecision(2)<< "  Result : " << "\033[34m" << (ite) ->second * it ->second << "$$$" << "\033[00m" << std::endl;
 				break;
 			}
 			else if  (ite->first > it->first){
-				std::cout << std::fixed << std::setprecision(6) << "Convert bitcoin amount : " << it->second;
-				std:: cout  << " using conversion value of " << it->first;
+				std::cout << std::fixed << std::setprecision(6) << "Convert bitcoin amount : " << std::setw(10) << it->second;
+				std:: cout  << " using conversion value of "  <<it->first;
 				std::cout << std::fixed << std::setprecision(2) << "  Result : " << "\033[34m" << (--ite) ->second * it ->second << "$$$" << "\033[00m" << std::endl;
 				//std::cout << ite ->second << ite ->first << std::endl;
 				break;
 			}
 			else if  (it->first > dataBase.rbegin()->first){
-				std::cout << std::fixed << std::setprecision(6) << "Convert bitcoin amount : " << it->second << " using conversion value of " << it->first; 
+				std::cout << std::fixed << std::setprecision(6) << "Convert bitcoin amount : " << std::setw(10) << it->second << " using conversion value of " << it->first; 
 				std::cout << std::fixed << std::setprecision(2) << "  Result : " << "\033[34m" << std::fixed << std::setprecision(2) << dataBase.rbegin()->second * it ->second << "$$$" << "\033[00m"<< std::endl;
 				break;
 			}

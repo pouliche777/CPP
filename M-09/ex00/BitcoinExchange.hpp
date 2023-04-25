@@ -11,7 +11,13 @@
 #include <chrono>
 #include <ctime>
 
-
+#define BLUE_CL "\033[1;36m"
+#define WHITE_CL "\033[0;37m"
+#define RED_CL "\033[0;31m"
+#define YELLOW_CL "\033[0;33m"
+#define PINK_CL "\033[38;2;255;192;203m"
+#define GREEN_CL "\033[0;32m"
+#define DEFAULT_CL "\033[0m"
 // Class declaration
 class BitcoinExchange {
  public:

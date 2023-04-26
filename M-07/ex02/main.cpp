@@ -54,6 +54,7 @@
 
 int main()
 {
+	Array <int > empty;
 	Array< int > intArray( 12 );
 	Array< std::string > stringArray( 6 );
 	Array< double > doubleArray( 6 );

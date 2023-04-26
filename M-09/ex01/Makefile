@@ -1,7 +1,7 @@
-NAME		=	Fixed
+NAME		=	RPN
 
 SRC			=	main.cpp \
-				Fixed.cpp \
+				RPN.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 

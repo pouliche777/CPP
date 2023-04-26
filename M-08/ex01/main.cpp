@@ -1,6 +1,7 @@
 #include "Span.hpp"
 int main()
 {
+	try{
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
@@ -14,10 +15,15 @@ int main()
         std::srand(time(NULL));
         std::generate( vec.begin(), vec.end(), std::rand );
 
-        Span span( vec.size() );
+        Span span(vec.size());
 		span.addNumber( vec.begin(), vec.end() );
 
         std::cout << "Longest span: " << span.longestSpan() << std::endl;
         std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
+
+	}
+	catch(const std::exception &e){
+		std::cerr << e.what() << std ::endl;
+	}
 	return 0;
 }

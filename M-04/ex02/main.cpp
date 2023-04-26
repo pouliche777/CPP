@@ -31,7 +31,7 @@ std::cout <<"test de deep copy!"<<std::endl;
 std::cout <<"Im a " << animals[5]->getType() <<std::endl;
 std::cout << "Im thinking about " << animals[5]->getBrain()->getIdea(1) 
  << " and " << animals[5]->getBrain()->getIdea(2) <<std::endl;
-*(animals[5]) = *(animals[6]);
+(animals[5]) = (animals[6]);
 std::cout << "_______________________________________" <<std::endl;
 std::cout << "_______________________________________" <<std::endl;
 std::cout << "_______________________________________" <<std::endl;

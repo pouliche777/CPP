@@ -1,7 +1,7 @@
-NAME		=	Fixed
+NAME		=	PmergeMe
 
 SRC			=	main.cpp \
-				Fixed.cpp \
+				PmergeMe.cpp 
 
 OBJS		=	$(SRC:.cpp=.o)
 

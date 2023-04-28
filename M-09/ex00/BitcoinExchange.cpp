@@ -1,7 +1,7 @@
 
 #include "BitcoinExchange.hpp"
 
-// Default constructor
+//  constructor
 BitcoinExchange::BitcoinExchange(std::string inputFile) : inputFile(inputFile) {
 		data = "data.csv";
 		setDataBase();
@@ -10,19 +10,27 @@ BitcoinExchange::BitcoinExchange(std::string inputFile) : inputFile(inputFile) {
  }
 
 // Copy constructor
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) : inputFile(other.inputFile){
   *this = other;
   return;
 }
 
 // Copy assignment overload
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs) {
-  (void)rhs;
+  	toConvert.clear();
+	toConvert = rhs.toConvert;
+	dataBase.clear();
+	dataBase = rhs.dataBase; 
+	data = rhs.data;
   return *this;
 }
 
-// Default destructor
-BitcoinExchange::~BitcoinExchange() { return; }
+// destructor
+BitcoinExchange::~BitcoinExchange() {
+	toConvert.clear();
+	dataBase.clear();
+	 return; 
+}
 
 // functions
  void BitcoinExchange::checkDate(std::string date)const{
@@ -56,9 +64,7 @@ BitcoinExchange::~BitcoinExchange() { return; }
     }
 
 }
-void BitcoinExchange::checkValue(std::string)const{
 
-}
 void BitcoinExchange:: setDataBase(){
 
 	std::ifstream inputFile(this->data);

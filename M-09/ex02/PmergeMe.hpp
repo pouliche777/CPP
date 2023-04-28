@@ -13,6 +13,9 @@
 #define PINK_CL "\033[38;2;255;192;203m"
 #define GREEN_CL "\033[0;32m"
 #define DEFAULT_CL "\033[0m"
+
+
+
 // Class declaration
 class PmergeMe {
  public:
@@ -26,10 +29,12 @@ class PmergeMe {
 
  private:
 	PmergeMe();
-	void setVec(std::string[], int);
-	void setList(std::string[], int);
+	void setVec(const std::string[], const int);
+	void setList(const std::string[], const int);
 	std::vector<int> vectInt;
 	std::list<int> listInt;
+	double timeToManageVec;
+	double timeToManageList;
 	
 };
 

@@ -18,58 +18,52 @@
 #define PINK_CL "\033[38;2;255;192;203m"
 #define GREEN_CL "\033[0;32m"
 #define DEFAULT_CL "\033[0m"
+
 // Class declaration
 class BitcoinExchange {
- public:
-  BitcoinExchange(const std::string InputFile);
-  BitcoinExchange(const BitcoinExchange &other);
-  BitcoinExchange &operator=(const BitcoinExchange &rhs);
-  ~BitcoinExchange();
+	public:
+		BitcoinExchange(const std::string InputFile);
+		BitcoinExchange(const BitcoinExchange &other);
+		BitcoinExchange &operator=(const BitcoinExchange &rhs);
+		~BitcoinExchange();
 
-  void showMeTheMoney();
+  		void showMeTheMoney();
+	private:
+		const std::string inputFile;
+		std::multimap<std::string, double > toConvert;
+		std::map<std::string, double > dataBase;
+		std::string data;
 
+		void checkDate(std::string)const;
+		void setDataBase();
+		void setToConvert();
 
-  class BadFile : public std::exception{
+ 		BitcoinExchange();
+
+	class BadFile : public std::exception{
 			public:
 				virtual const char* what()const throw() {
-				
 					return("Something is wrong with the file!! ");
-			}
-		};
+				}
+	};
 	class BadFormat : public std::exception{
-			public:
-				virtual const char* what()const throw() {
-				
-					return("The format of your inputfile is WRONG! ");
+		public:
+			virtual const char* what()const throw() {
+				return("The format of your inputfile is WRONG! ");
 			}
-		};
-		class WrongDate : public std::exception{
-			public:
-				virtual const char* what()const throw() {
-				
-					return("Invalid date in the inputfile! ");
+	};
+	class WrongDate : public std::exception{
+		public:
+			virtual const char* what()const throw() {
+				return("Invalid date in the inputfile! ");
 			}
-		};
-		class WrongValue : public std::exception{
-			public:
-				virtual const char* what()const throw() {
-				
-					return("The value is too high, it must be between 0 and 1000! ");
+	};
+	class WrongValue : public std::exception{
+		public:
+			virtual const char* what()const throw() {
+				return("The value is too high, it must be between 0 and 1000! ");
 			}
-		};
-
- private:
- 	const std::string inputFile;
-	std::multimap<std::string, double > toConvert;
-	std::map<std::string, double > dataBase;
-	std::string data;
-
-	void checkDate(std::string)const;
-	void checkValue(std::string)const;
-	void setDataBase();
-	void setToConvert();
-
- 	 BitcoinExchange();
+	};
 };
 
 #endif // BITCOINEXCHANGE_HPP_

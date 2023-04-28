@@ -3,7 +3,6 @@
 int calculate(std::string input){
 	std::stack<int> polishStack;
 	std::string token;
-	//peut etre rajouter une erreur lorsque le intput est de szie 1;
 	std::stringstream ss(input);
 	while(ss >> token){
 		if (token.size() > 1)
@@ -42,7 +41,7 @@ int calculate(std::string input){
 					throw std::invalid_argument("Invalid argument");
 		}
 	}
-	if (polishStack.size() >= 1)
+	if (polishStack.size() != 0)
 		return (polishStack.top());
 	else
 		throw std::invalid_argument("Invalid argument");
